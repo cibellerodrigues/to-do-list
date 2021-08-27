@@ -30,13 +30,17 @@ export function TaskList() {
     // o update (marca como finalizada) -- busca pelo index
     function handleToggleTaskCompletion(id) {
         const selectedTask = tasks.findIndex(task => task.id === id);
+
+
         // se não encontrar retorna -1 
         if (selectedTask > -1) {
             // marca a tarefa como completa
             setTasks(state => {
                 const newState = [...state];
 
-                newState[selectedTask].isComplete = !state[selectedTask].isComplete;
+                // newState[selectedTask].isComplete = !newState[selectedTask].isComplete;
+
+                newState[selectedTask] = {...newState[selectedTask], isComplete : !newState[selectedTask].isComplete}
 
                 return newState;
             });
